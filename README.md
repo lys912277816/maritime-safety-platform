@@ -4,11 +4,13 @@
 
 ©上海交通大学智慧航运与现代物流课题组
 
+在线访问：<https://lys912277816.github.io/maritime-safety-platform/>。
+
 ## GitHub Pages 发布
 
-`publish/` 包含可直接发布的完整网页，底图、样式和脚本已嵌入 `index.html`，无需安装后端或配置 AIS 密钥。将 `publish/index.html`、`publish/.nojekyll` 与 `publish/README.md` 放到 GitHub 仓库根目录，然后在仓库 Settings → Pages 选择 **Deploy from a branch → main → /(root)**。
+本仓库根目录保存预构建网页。底图、样式和脚本已嵌入 `index.html`；访客无需安装程序、登录账号或配置 AIS 密钥。GitHub Pages 发布来源为 **main → /(root)**。
 
-发布成功后，GitHub 的 Pages 设置页会给出实际访问链接。尚未完成账号登录及发布时，不应把推测的 github.io 地址作为已上线链接。
+桌面、平板和手机均可使用顶部在线访问链接；本机 Windows 程序与网页使用相同的数据口径。
 
 ## 数据与更新
 
@@ -21,7 +23,7 @@ GitHub Pages 只托管界面，本机采集端继续接收 AIS 和新闻，每10
 
 ## 重建
 
-需要 Node.js 18.16 及以上版本：
+下载并解压仓库中的 [前端源码包](source-code.zip)，在解压目录运行下列命令。仓库根目录是发布产物，构建文件位于源码包内。需要 Node.js 18.16 及以上版本：
 
 ```sh
 npm ci
@@ -29,3 +31,5 @@ npm run build
 ```
 
 编辑 `src/lib/api.ts` 可修改公开数据服务地址，也可在构建时通过 `VITE_API_ORIGIN` 指定。发布前应确认该数据服务支持所用 GitHub Pages 来源的跨域读取与航线分析。
+
+构建生成 `publish/index.html`、`publish/.nojekyll` 和 `publish/README.md`，更新仓库对应文件即可重新发布。
